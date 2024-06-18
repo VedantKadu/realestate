@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const SignUP = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -80,7 +80,7 @@ const SignUP = () => {
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
         <Link to={"/sign-in"}>
-          <span className="text-blue-700">Sign in</span>
+          <span className="text-blue-700">Sign In</span>
         </Link>
       </div>
       {error && <p className="text-red-500 mt-5">{error}</p>}
@@ -88,4 +88,4 @@ const SignUP = () => {
   );
 };
 
-export default SignUP;
+export default SignUp;
