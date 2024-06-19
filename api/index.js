@@ -21,7 +21,7 @@ const app = express();
 
 app.use(express.json());
 
-app.listen(4000, () => {
+app.listen(process.env.PORT, () => {
   console.log("App is running on port 4000");
 });
 
