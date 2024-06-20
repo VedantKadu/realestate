@@ -70,7 +70,8 @@ export const google = async (req, res, next) => {
           Math.random().toString(36).slice(-4),
         email: req.body.email,
         password: hashedPass,
-        avatar: req.body.photo,
+        avatar:
+          "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
       });
       await newUser.save();
       console.log("new user created");
