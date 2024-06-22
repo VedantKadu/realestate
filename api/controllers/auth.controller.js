@@ -29,13 +29,11 @@ export const signin = async (req, res, next) => {
     }
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET, {
       algorithm: "HS256",
-      expiresIn: "1h",
     });
     const { password: pass, ...rest } = validUser._doc;
     res
       .cookie("access_token", token, {
         httpOnly: true,
-        expires: new Date(Date.now() + 60 * 60 * 1000 * 12),
       })
       .status(200)
       .json(rest);
@@ -50,13 +48,11 @@ export const google = async (req, res, next) => {
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         algorithm: "HS256",
-        expiresIn: "12h",
       });
       const { password: pass, ...rest } = user._doc;
       res
         .cookie("access_token", token, {
           httpOnly: true,
-          expires: new Date(Date.now() + 60 * 60 * 1000 * 12),
         })
         .status(200)
         .json(rest);
@@ -77,13 +73,11 @@ export const google = async (req, res, next) => {
       console.log("new user created");
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
         algorithm: "HS256",
-        expiresIn: "12h",
       });
       const { password: pass, ...rest } = newUser._doc;
       res
         .cookie("access_token", token, {
           httpOnly: true,
-          expires: new Date(Date.now() + 60 * 60 * 1000 * 12),
         })
         .status(200)
         .json(rest);

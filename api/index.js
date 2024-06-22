@@ -2,6 +2,7 @@
 import express from "express"; //ES6 syntax
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
@@ -20,6 +21,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.listen(process.env.PORT, () => {
   console.log("App is running on port 4000");
