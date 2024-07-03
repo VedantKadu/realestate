@@ -8,3 +8,5 @@ export const createListing = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getUserListing = () => {};
