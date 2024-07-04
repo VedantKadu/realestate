@@ -19,8 +19,8 @@ export default function CreateListing() {
     description: "",
     address: "",
     type: "rent",
-    bedroom: 1,
-    bathroom: 1,
+    bedrooms: 1,
+    bathrooms: 1,
     regularPrice: 50,
     discountPrice: 50,
     offer: false,
@@ -34,6 +34,8 @@ export default function CreateListing() {
   const navigate = useNavigate();
 
   const handleImageSubmit = (e) => {
+    e.preventDefault();
+
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
       setImageUploadError(false);
@@ -128,10 +130,12 @@ export default function CreateListing() {
         body: JSON.stringify({ ...formData, userRef: currentUser._id }),
       });
       const data = await res.json();
+      console.log(data);
       setLoading(false);
       if (data.success === false) {
         setError(data.message);
       }
+
       navigate(`/listing/${data._id}`);
     } catch (err) {
       setError(err.message);
@@ -237,7 +241,7 @@ export default function CreateListing() {
                 required
                 className="p-3 border border-gray-300 rounded-lg"
                 onChange={handleChange}
-                value={formData.bedroom}
+                value={formData.bedrooms}
               />
               <p>Beds</p>
             </div>
@@ -250,7 +254,7 @@ export default function CreateListing() {
                 required
                 className="p-3 border border-gray-300 rounded-lg"
                 onChange={handleChange}
-                value={formData.bathroom}
+                value={formData.bathrooms}
               />
               <p>Baths</p>
             </div>

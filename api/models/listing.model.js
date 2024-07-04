@@ -16,7 +16,7 @@ const listingSchema = new Schema(
       type: String,
       required: true,
     },
-    reqularPrice: {
+    regularPrice: {
       type: Number,
       required: true,
     },
