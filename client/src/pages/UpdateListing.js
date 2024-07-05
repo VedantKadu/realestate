@@ -48,7 +48,7 @@ export default function CreateListing() {
     };
 
     fetchListing();
-  }, []);
+  }, [params.listingId]);
 
   const handleImageSubmit = (e) => {
     e.preventDefault();
