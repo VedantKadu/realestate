@@ -35,7 +35,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/listing", listingRoutes);
 
 // Serving frontend files statically
-app.use(express.static(path.join(__dirname, "/client/build/index.html")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
